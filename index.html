@@ -1,0 +1,246 @@
+<!-- python -m SimpleHTTPServer
+ -->
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script src="js/jslibs/angular.js"></script>
+    <script  src="js/jslibs/angular-aria.js"></script>
+    <script src="js/jslibs/angular-animate.js"></script>
+   
+    
+    <script  src="js/jslibs/angular-material.min.js"></script>
+   
+    <script src="js/jslibs/ui-bootstrap-tpls-0.12.0.min.js"></script>
+    <script src="js/jslibs/jquery-2.1.4.min.js"></script>
+    <script src="./js/angular/controller/script.js"></script>
+
+    <link rel="stylesheet" href="css/csslibs/angular-material.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/csslibs/font-awesome.css" />
+    <link rel="shortcut icon" href="img/logo/Hirealchemy-Logo.ico"/>
+  </head>
+
+  <body ng-app="mainApp" ng-controller="mainController">
+    <!-- start header -->
+    <div layout="row" layout-wrap style="background-color:#FFE0B2">
+      <!-- logo -->
+      <div flex="80">
+          <img src="img/logo/logo.png">
+      </div>
+      
+      <!-- dropdown -->
+      <div flex="20">
+        <md-menu>
+          <md-button aria-label="Open phone interactions menu" class="md-icon-button" ng-click="openMenu($mdOpenMenu, $event)">
+            <!-- <md-icon md-menu-origin md-svg-icon="call:phone"></md-icon> -->
+            <img src="img/icons/menu.svg">
+          </md-button>
+          <md-menu-content width="4">
+            <md-menu-item>
+              <md-button ng-click="openChangePasswordDialog($event)">
+                <img src="img/icons/share.svg">
+                Change Password
+              </md-button>
+            </md-menu-item>
+            
+            <md-menu-divider></md-menu-divider> 
+            <md-menu-item>
+              <md-button ng-click="signout($event)">
+                <!-- <img src="img/icons/share.svg"> -->
+                Signout
+              </md-button>
+            </md-menu-item>
+          </md-menu-content>
+        </md-menu>
+      </div>
+    </div>
+    <!-- end header -->
+    <md-content class="md-padding" layout="column" style="min-height:100%;max-height:100">
+    
+      <div class="lock-size" layout="row" layout-align="left left">
+        <!-- start fab speed dial menu -->
+        <md-fab-speed-dial md-open="isOpen" md-direction="{{selectedDirection}}"
+                           ng-class="selectedMode">
+          <md-fab-trigger>
+            <md-button aria-label="menu" class="md-fab md-warn">
+              <!-- <md-icon md-svg-src="img/icons/menu.svg"></md-icon> -->
+               <md-tooltip md-direction="right">Menu</md-tooltip>
+              <img class="icon_position" src="img/icons/menu.svg" alt="menu"/>
+            </md-button>
+          </md-fab-trigger>
+          <md-fab-actions>
+            <md-button aria-label="twitter" class="md-fab md-raised md-mini">
+              <md-tooltip md-direction="right">Google Plus</md-tooltip>
+              <img class="icon_position" src="img/icons/google_plus.svg" alt="google_plus"/>
+            </md-button>
+            <md-button aria-label="facebook" class="md-fab md-raised md-mini">
+              <md-tooltip md-direction="right">Twitter</md-tooltip>
+              <img class="icon_position" src="img/icons/twitter.svg" alt="twitter"/>
+            </md-button>
+            <md-button aria-label="Google Hangout" class="md-fab md-raised md-mini">
+              <md-tooltip md-direction="down">Hangouts</md-tooltip>
+              <img class="icon_position" src="img/icons/hangouts.svg" alt="hangouts"/>
+            </md-button>
+          </md-fab-actions>
+        </md-fab-speed-dial>
+        <!-- end fab speed dial menu -->
+        <!-- start tab -->
+        <div layout="column">
+          <md-content class="md-padding">
+            <md-tabs md-dynamic-height md-border-bottom>
+              <md-tab label="One">
+                <md-content class="md-padding">
+                  <h1 class="md-display-2">Tab Two</h1>
+                  <md-button  style="margin-top: -9%;float: right;margin-right: 14%" ng-click="toggleRight()" class="md-fab md-mini" aria-label="Filters">
+                            <md-tooltip>Filters</md-tooltip>
+                            <i class="fa fa-filter" ></i>
+                  </md-button>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
+                  
+                 
+                </md-content>
+              </md-tab>
+              <md-tab label="two">
+                <md-content class="md-padding">
+                  <h1 class="md-display-2">Tab Two</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
+                  <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
+                  <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                </md-content>
+              </md-tab>
+              <md-tab label="three">
+                <md-content class="md-padding">
+                  <h1 class="md-display-2">Tab Three</h1>
+                  <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                </md-content>
+              </md-tab>
+              <md-tab label="One">
+                <md-content class="md-padding">
+                  <h1 class="md-display-2">Tab Two</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
+                  
+                 
+                </md-content>
+              </md-tab>
+              <md-tab label="two">
+                <md-content class="md-padding">
+                  <h1 class="md-display-2">Tab Two</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
+                  <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
+                  <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                </md-content>
+              </md-tab>
+              <md-tab label="three">
+                <md-content class="md-padding">
+                  <h1 class="md-display-2">Tab Three</h1>
+                  <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                </md-content>
+              </md-tab><md-tab label="One">
+                <md-content class="md-padding">
+                  <h1 class="md-display-2">Tab Two</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
+                  
+                 
+                </md-content>
+              </md-tab>
+              <md-tab label="two">
+                <md-content class="md-padding">
+                  <h1 class="md-display-2">Tab Two</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
+                  <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
+                  <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                </md-content>
+              </md-tab>
+              <md-tab label="three">
+                <md-content class="md-padding">
+                  <h1 class="md-display-2">Tab Three</h1>
+                  <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                </md-content>
+              </md-tab>
+            </md-tabs>
+          </md-content>
+        </div>
+        <!-- end tab -->
+      </div>
+
+      <!-- right toogle bar  -->
+      <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right" style="overflow-x: hidden">
+                  <md-toolbar class="md-theme-light">
+                    <h1 class="md-toolbar-tools">Custom Filters</h1>
+
+                      <md-button ng-click="close()" style="margin-top: -21%;margin-left: 79%;" class="md-primary">
+                        <i style="color: white;" class="fa fa-close"></i>
+                      </md-button>
+
+                  </md-toolbar>
+
+                  <md-content layout-padding>
+                    <form name="userForm" style="height:auto;overflow-x: hidden">
+                      <div layout layout-sm="column">
+                        <md-input-container style="width:80%">
+                            <label>Company (Disabled)</label>
+                            <input ng-model="user.company" disabled>
+                          </md-input-container>
+                        <md-input-container flex>
+                          <label>Submission Date</label>
+                          <input type="date" ng-model="user.submissionDate">
+                        </md-input-container>
+                      </div>
+                      <div layout layout-sm="column">
+                        <md-input-container flex>
+                          <label>First name</label>
+                          <input ng-model="user.firstName">
+                        </md-input-container>
+                        <md-input-container flex>
+                          <label>Last Name</label>
+                          <input ng-model="theMax">
+                        </md-input-container>
+                      </div>
+                      <md-input-container flex>
+                        <label>Address</label>
+                        <input ng-model="user.address">
+                      </md-input-container>
+                      <md-input-container md-no-float>
+                        <input ng-model="user.address2" placeholder="Address 2">
+                      </md-input-container>
+                      <div layout layout-sm="column">
+                        <md-input-container flex>
+                          <label>City</label>
+                          <input ng-model="user.city">
+                        </md-input-container>
+                        <md-input-container flex>
+                          <label>State</label>
+                          <input ng-model="user.state">
+                        </md-input-container>
+                        <md-input-container flex>
+                          <label>Postal Code</label>
+                          <input ng-model="user.postalCode">
+                        </md-input-container>
+                      </div>
+                      
+                        <md-input-container flex>
+                        <label>Biography</label>
+                        <textarea ng-model="user.biography" columns="1" md-maxlength="150"></textarea>
+                      </md-input-container>
+                      <md-input-container flex>
+                        <label>Biography</label>
+                        <textarea ng-model="user.biography" columns="1" md-maxlength="150"></textarea>
+                      </md-input-container>
+                      <md-input-container flex>
+                        <label>Biography</label>
+                        <textarea ng-model="user.biography" columns="1" md-maxlength="150"></textarea>
+                      </md-input-container>
+                      <md-input-container flex>
+                        <label>Biography</label>
+                        <textarea ng-model="user.biography" columns="1" md-maxlength="150"></textarea>
+                      </md-input-container>
+                    </form>
+                  </md-content>
+      </md-sidenav>
+      <!-- end right toogle bar -->
+    </md-content>
+
+  </body>
+
+</html>

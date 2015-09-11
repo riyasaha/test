@@ -1,0 +1,22 @@
+/* Styles go here */
+
+.icon_position {
+	margin-left: 2%; 
+	margin-top: 6px;
+}
+/*dropdown menu*/
+.menudemoBasicUsage .md-menu-demo {
+  padding: 24px; }
+.menudemoBasicUsage .menu-demo-container {
+  min-height: 200px; }
+  /*css for tab*/
+  /*css for tab*/
+  .tabsdemoDynamicHeight md-content {
+  background-color: transparent !important; }
+  .tabsdemoDynamicHeight md-content md-tabs {
+    background: #f6f6f6;
+    border: 1px solid #e1e1e1; }
+    .tabsdemoDynamicHeight md-content md-tabs md-tabs-canvas {
+      background: white; }
+  .tabsdemoDynamicHeight md-content h1:first-child {
+    margin-top: 0; }
